@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>GS Prototype</title>
+    <!-- Custom styles for this template -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+    <script src="./sortable.js"></script>
+    <script src="./sheets.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+    <link rel="stylesheet" href="./sortable-theme-bootstrap.css" />
+  </head>
+  <body>
+    <img id="successImage" src="./success.png" style="display: none"/>
+    <div id="spinnerElement" class="spinner"></div>
+    <div id="mainDialog" class="custom-container">
+      <div class="input-group">
+        <input type="text" class="  search-query form-control" placeholder="Search" />
+        <span class="input-group-btn">
+          <button class="btn" type="button">
+            <span class=" glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+      <table id="myTable" class="sortable-theme-bootstrap" data-sortable>
+        <thead>
+          <tr>
+            <th id="titleHeader">Title</th>
+            <th id="viewedHeader" data-sorted="true" data-sorted-direction="descending" data-sortable-type="date">Last Viewed by Me</th>
+            <th id="modifierHeader">Last Modified by</th>
+            <th id="modifiedHeader" data-sortable-type="date">Last Modified</th>
+          </tr>
+        </thead>
+        <tbody>
+            <!-- loaded dynamically -->
+        </tbody>
+      </table>
+      <div class="buttons">
+        <button type="button" class="btn btn-primary">Cancel</button>
+        <button type="button" id="connect" class="btn btn-primary">Connect</button>
+      </div> <!-- Row 2 -->
+    </div>
+  </body>
+</html>
