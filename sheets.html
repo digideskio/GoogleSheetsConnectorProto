@@ -17,13 +17,15 @@
     <link rel="stylesheet" href="./sortable-theme-bootstrap.css" />
   </head>
   <body>
+    <button id="authorize-button" onclick="handleAuthClick(event)">Authorize</button>
+    <a style="padding: 4px" href="./sheetsV2.html">Go to shippoint 2 version...</a>
     <img id="successImage" src="./success.png" style="display: none"/>
     <div id="spinnerElement" class="spinner"></div>
     <div id="mainDialog" class="custom-container">
       <div class="input-group">
-        <input type="text" class="  search-query form-control" placeholder="Search" />
+        <input id="searchBox" type="text" class="  search-query form-control" placeholder="Search by title or enter the URL of a sheet" />
         <span class="input-group-btn">
-          <button class="btn" type="button">
+          <button id="searchButton" class="btn" type="button">
             <span class=" glyphicon glyphicon-search"></span>
           </button>
         </span>
@@ -43,7 +45,7 @@
       </table>
       <div class="buttons">
         <button type="button" class="btn btn-primary">Cancel</button>
-        <button type="button" id="connect" class="btn btn-primary">Connect</button>
+        <button id="connectButton" type="button" class="btn btn-primary">Connect</button>
       </div> <!-- Row 2 -->
     </div>
   </body>
