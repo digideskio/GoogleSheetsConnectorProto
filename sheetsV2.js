@@ -1,4 +1,5 @@
 var docIDs = [];
+var thumbnailLinks = ["./thumb1.png", "./thumb2.png", "./thumb3.png"];
 
 $(document).ready(function() {
   showSpinner(true)
@@ -134,9 +135,11 @@ function getFileMetadata(fileId) {
   });
   request.execute(function(resp) {
     var link = resp.alternateLink;
-    var thumbnailLink = "https://docs.google.com/feeds/vt?gd=true&id=1enefB2co2WxNWGhiAfx08TyqJzlGM3nzMzFbvMRlrnA&v=0&s=AMedNnoAAAAAVoNNm6DB1T4sqGtGRmsDz4h0ZWe565J3&sz=s220"
+    var title = resp.title;
+    var randIndex = Math.floor((Math.random() * 3));
+    var thumbnailLink = thumbnailLinks[randIndex];
     var owner = resp.ownerNames[0];
-    populateMetadataGrid(link, thumbnailLink, owner);
+    populateMetadataGrid(title, link, thumbnailLink, owner, randIndex + 1);
   });
 }
 
@@ -158,9 +161,12 @@ function downloadFile(file, callback) {
   }
 }
 
-function populateMetadataGrid(link, thumbnailLink, owner) {
+function populateMetadataGrid(title, link, thumbnailLink, owner, count) {
+  $("#titleMetadata").replaceWith("<p id=\"titleMetadata\"><b>Title: </b>" + title + "</p>");
   $("#ownerMetadata").replaceWith("<p id=\"ownerMetadata\"><b>Owner: </b>" + owner +"</p>");
   $("#linkMetadata").replaceWith("<p id=\"linkMetadata\"><b>Open in Drive: </b><a href=" + link + " target=\"_blank\">link</a></p>")
+  $("#worksheetMetadata").replaceWith("<p id=\"worksheetMetadata\"><b>Worksheet Count: </b>" + count + "</p>")
+
   $("#thumbnail").attr('src', thumbnailLink);
   $("#previewSpinner").css('display', 'none');
   $("#metadataContent").css('display', 'block');
@@ -195,7 +201,7 @@ function clearSelected() {
 function addTableHandlers() {
   $("tbody").on("click", "tr", function(e) {
     var index = $("tr").index($(this));
-    getFileMetadata(docIDs[index]);
+    getFileMetadata(docIDs[index - 1]);
     $('#connectButton').prop('disabled', false);
     fetchMetadata();
     $(this)
