@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  showSpinner(true)
+  $("#mainDialog").css('display', 'none');
 
   $("#connectButton").click(function() { // This event fires when a button is clicked
     showSpinner(true)
@@ -90,7 +90,7 @@ function checkAuth() {
    } else {
      showSpinner(false)
      $("#mainDialog").css('display', 'none');
-     $("#authorize-button").css('display', 'block');
+     $("#authorize-button").css('display', 'inline');
    }
  }
 

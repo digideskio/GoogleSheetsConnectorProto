@@ -2,7 +2,7 @@ var docIDs = [];
 var thumbnailLinks = ["./thumb1.png", "./thumb2.png", "./thumb3.png"];
 
 $(document).ready(function() {
-  showSpinner(true)
+  $("#mainDialog").css('display', 'none');
 
   $("#connectButton").click(function() { // This event fires when a button is clicked
     showSpinner(true)
@@ -57,7 +57,7 @@ function handleAuthResult(authResult) {
   } else {
     showSpinner(false)
     $("#mainDialog").css('display', 'none');
-    $("#authorize-button").css('display', 'block');
+    $("#authorize-button").css('display', 'inline');
   }
 }
 
