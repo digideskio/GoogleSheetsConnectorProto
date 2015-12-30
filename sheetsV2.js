@@ -134,8 +134,11 @@ function getFileMetadata(fileId) {
   });
   request.execute(function(resp) {
     var link = resp.alternateLink;
+<<<<<<< HEAD
     console.log(resp.embedLink);
     console.log(resp.id)
+=======
+>>>>>>> master
     var thumbnailLink = "https://docs.google.com/feeds/vt?gd=true&id=1enefB2co2WxNWGhiAfx08TyqJzlGM3nzMzFbvMRlrnA&v=0&s=AMedNnoAAAAAVoNNm6DB1T4sqGtGRmsDz4h0ZWe565J3&sz=s220"
     var owner = resp.ownerNames[0];
     populateMetadataGrid(link, thumbnailLink, owner);
