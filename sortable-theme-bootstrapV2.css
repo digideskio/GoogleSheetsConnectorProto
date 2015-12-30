@@ -75,7 +75,7 @@ tbody td, thead th {
 .previewSpinner {
    position: fixed;
    display: none;
-   left: 76%;
+   left: 78%;
    top: 50%;
    z-index: 1;
    height:40px;

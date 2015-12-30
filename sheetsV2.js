@@ -162,7 +162,7 @@ function downloadFile(file, callback) {
 }
 
 function populateMetadataGrid(title, link, thumbnailLink, owner, count) {
-  $("#titleMetadata").replaceWith("<p id=\"titleMetadata\"><b>Title: </b>" + title + "</p>");
+  $("#titleMetadata").replaceWith("<p id=\"titleMetadata\"><u>" + title + "</u></p>");
   $("#ownerMetadata").replaceWith("<p id=\"ownerMetadata\"><b>Owner: </b>" + owner +"</p>");
   $("#linkMetadata").replaceWith("<p id=\"linkMetadata\"><b>Open in Drive: </b><a href=" + link + " target=\"_blank\">link</a></p>")
   $("#worksheetMetadata").replaceWith("<p id=\"worksheetMetadata\"><b>Worksheet Count: </b>" + count + "</p>")
