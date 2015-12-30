@@ -1,4 +1,3 @@
-var docIDs = [];
 var thumbnailLinks = ["./thumb1.png", "./thumb2.png", "./thumb3.png"];
 
 $(document).ready(function() {
@@ -117,8 +116,7 @@ function listFiles(q) {
           lastUser = "NA";
         }
 
-        addFile(i, file.title, viewedString, modifiedString, lastUser);
-        docIDs.push(file.id)
+        addFile(i, file.title, viewedString, modifiedString, lastUser, file.id);
       }
 
       addTableHandlers();
@@ -178,11 +176,12 @@ function populateMetadataGrid(title, link, thumbnailLink, owner, count) {
  *
  * @param {string} message Text to be placed in pre element.
  */
-function addFile(index, title, viewed, modified, modifier) {
+function addFile(index, title, viewed, modified, modifier, id) {
   $("#myTable").last().append("<tr class='tableRow'><td>" + title +
                               "</td><td>" + viewed +
                               "</td><td>" + modifier +
                               "</td><td>" + modified +
+                              "<td style=\"display:none;\">" + id +
                               "</td></tr>");
 }
 
@@ -201,7 +200,8 @@ function clearSelected() {
 function addTableHandlers() {
   $("tbody").on("click", "tr", function(e) {
     var index = $("tr").index($(this));
-    getFileMetadata(docIDs[index - 1]);
+    var table = document.getElementById('myTable');
+    getFileMetadata(table.rows[index].cells[4].innerHTML);
     $('#connectButton').prop('disabled', false);
     fetchMetadata();
     $(this)

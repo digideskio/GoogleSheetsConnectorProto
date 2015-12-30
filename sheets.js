@@ -186,6 +186,7 @@ function searchSheets() {
 }
 
 function addTableHandlers() {
+  Sortable.initTable($("#myTable"));
   $("tbody").on("click", "tr", function(e) {
     $('#connectButton').prop('disabled', false);
     $(this)
